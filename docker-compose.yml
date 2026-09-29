@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: infraguard
+      POSTGRES_USER: infraguard
+      POSTGRES_PASSWORD: infraguard_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U infraguard -d infraguard"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    environment:
+      APP_ENV: production
+      DATABASE_URL: postgresql+psycopg2://infraguard:infraguard_password@postgres:5432/infraguard
+      FRONTEND_ORIGINS: http://localhost:5174
+      RATE_LIMIT_PER_MINUTE: 60
+      RATE_LIMIT_WRITE_PER_MINUTE: 10
+      API_KEY: ${API_KEY:-}
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+      args:
+        VITE_API_BASE_URL: http://localhost:8000
+        VITE_API_KEY: ${API_KEY:-}
+    ports:
+      - "5174:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

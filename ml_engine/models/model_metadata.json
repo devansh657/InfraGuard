@@ -1,0 +1,360 @@
+{
+  "generated_at": "2026-07-26T16:08:01.114505+00:00",
+  "dataset_path": "data/protected_telemetry_stream.csv",
+  "rows_loaded": 5000,
+  "rows_after_cleaning": 5000,
+  "target_column": "protected_risk_label",
+  "base_feature_columns": [
+    "Packet_Size",
+    "Transmission_Rate",
+    "Latency",
+    "Protocol_Type",
+    "Active_Connections",
+    "CPU_Usage",
+    "Memory_Usage",
+    "Bandwidth_Utilization",
+    "Request_Response_Time",
+    "Auth_Failures",
+    "Access_Violations",
+    "Firewall_Blocks",
+    "IDS_Alerts",
+    "DWT_Feature_1",
+    "DWT_Feature_2",
+    "DWT_Feature_3",
+    "DWT_Feature_4",
+    "DWT_Feature_5",
+    "DWT_Feature_6",
+    "DWT_Feature_7",
+    "DWT_Feature_8"
+  ],
+  "feature_columns": [
+    "Packet_Size",
+    "Transmission_Rate",
+    "Latency",
+    "Protocol_Type",
+    "Active_Connections",
+    "CPU_Usage",
+    "Memory_Usage",
+    "Bandwidth_Utilization",
+    "Request_Response_Time",
+    "Auth_Failures",
+    "Access_Violations",
+    "Firewall_Blocks",
+    "IDS_Alerts",
+    "DWT_Feature_1",
+    "DWT_Feature_2",
+    "DWT_Feature_3",
+    "DWT_Feature_4",
+    "DWT_Feature_5",
+    "DWT_Feature_6",
+    "DWT_Feature_7",
+    "DWT_Feature_8",
+    "rolling_mean_cpu_usage",
+    "rolling_mean_latency",
+    "rolling_mean_request_response_time",
+    "rolling_mean_ids_alerts",
+    "latency_spike_flag",
+    "auth_failure_burst_flag",
+    "ids_alert_burst_flag",
+    "bandwidth_pressure_flag"
+  ],
+  "scaled_feature_columns": [
+    "Packet_Size",
+    "Transmission_Rate",
+    "Latency",
+    "Protocol_Type",
+    "Active_Connections",
+    "CPU_Usage",
+    "Memory_Usage",
+    "Bandwidth_Utilization",
+    "Request_Response_Time",
+    "Auth_Failures",
+    "Access_Violations",
+    "Firewall_Blocks",
+    "IDS_Alerts",
+    "DWT_Feature_1",
+    "DWT_Feature_2",
+    "DWT_Feature_3",
+    "DWT_Feature_4",
+    "DWT_Feature_5",
+    "DWT_Feature_6",
+    "DWT_Feature_7",
+    "DWT_Feature_8",
+    "rolling_mean_cpu_usage",
+    "rolling_mean_latency",
+    "rolling_mean_request_response_time",
+    "rolling_mean_ids_alerts",
+    "latency_spike_flag",
+    "auth_failure_burst_flag",
+    "ids_alert_burst_flag",
+    "bandwidth_pressure_flag"
+  ],
+  "feature_config": {
+    "rolling_window": 5,
+    "threshold_quantile": 0.95,
+    "latency_spike_threshold": 95.127887193376,
+    "auth_failure_burst_threshold": 9.0,
+    "ids_alert_burst_threshold": 14.0,
+    "bandwidth_pressure_threshold": 95.57059917504387
+  },
+  "feature_defaults": {
+    "Packet_Size": 1008,
+    "Transmission_Rate": 123.08430141836172,
+    "Latency": 53.93922279711897,
+    "Protocol_Type": 1,
+    "Active_Connections": 245,
+    "CPU_Usage": 48.71978005588461,
+    "Memory_Usage": 8013.202877604415,
+    "Bandwidth_Utilization": 54.449122843586935,
+    "Request_Response_Time": 1.0485656939356014,
+    "Auth_Failures": 5,
+    "Access_Violations": 2,
+    "Firewall_Blocks": 10,
+    "IDS_Alerts": 7,
+    "DWT_Feature_1": 0.0927624341761948,
+    "DWT_Feature_2": 0.0,
+    "DWT_Feature_3": 0.0,
+    "DWT_Feature_4": 0.0,
+    "DWT_Feature_5": 0.0,
+    "DWT_Feature_6": 0.0,
+    "DWT_Feature_7": 0.0,
+    "DWT_Feature_8": 0.0
+  },
+  "feature_schema": [
+    {
+      "name": "Packet_Size",
+      "description": "Network packet size observed in the sample.",
+      "min": 500.0,
+      "max": 1499.0,
+      "mean": 1005.7012,
+      "median": 1010.0,
+      "dtype": "int64"
+    },
+    {
+      "name": "Transmission_Rate",
+      "description": "Observed network transmission rate.",
+      "min": 50.00174521330492,
+      "max": 199.93365548756577,
+      "mean": 124.14118971634332,
+      "median": 123.3084919323768,
+      "dtype": "float64"
+    },
+    {
+      "name": "Latency",
+      "description": "Network latency for the sample.",
+      "min": 10.004754423906713,
+      "max": 99.9705884717883,
+      "mean": 54.7017294454533,
+      "median": 54.3500639002321,
+      "dtype": "float64"
+    },
+    {
+      "name": "Protocol_Type",
+      "description": "Encoded protocol category from the dataset.",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.5034,
+      "median": 1.0,
+      "dtype": "int64"
+    },
+    {
+      "name": "Active_Connections",
+      "description": "Number of active network connections.",
+      "min": 1.0,
+      "max": 499.0,
+      "mean": 246.7388,
+      "median": 244.0,
+      "dtype": "int64"
+    },
+    {
+      "name": "CPU_Usage",
+      "description": "Host CPU utilization signal.",
+      "min": 5.004090531016498,
+      "max": 89.9915830457847,
+      "mean": 48.52112083853082,
+      "median": 48.84740681487479,
+      "dtype": "float64"
+    },
+    {
+      "name": "Memory_Usage",
+      "description": "Host memory usage signal.",
+      "min": 101.75268564897708,
+      "max": 15993.614276980315,
+      "mean": 8041.726682941662,
+      "median": 8062.52820218859,
+      "dtype": "float64"
+    },
+    {
+      "name": "Bandwidth_Utilization",
+      "description": "Network bandwidth utilization.",
+      "min": 10.006074788191698,
+      "max": 99.97588758661053,
+      "mean": 54.4359455093269,
+      "median": 54.30836744489115,
+      "dtype": "float64"
+    },
+    {
+      "name": "Request_Response_Time",
+      "description": "Round-trip request/response timing.",
+      "min": 0.1000105196839021,
+      "max": 1.999599806443931,
+      "mean": 1.0473101189490146,
+      "median": 1.0547768919627705,
+      "dtype": "float64"
+    },
+    {
+      "name": "Auth_Failures",
+      "description": "Authentication failures observed in the sample.",
+      "min": 0.0,
+      "max": 9.0,
+      "mean": 4.5512,
+      "median": 5.0,
+      "dtype": "int64"
+    },
+    {
+      "name": "Access_Violations",
+      "description": "Access policy violations observed in the sample.",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 2.0198,
+      "median": 2.0,
+      "dtype": "int64"
+    },
+    {
+      "name": "Firewall_Blocks",
+      "description": "Firewall block events observed in the sample.",
+      "min": 0.0,
+      "max": 19.0,
+      "mean": 9.4774,
+      "median": 10.0,
+      "dtype": "int64"
+    },
+    {
+      "name": "IDS_Alerts",
+      "description": "Intrusion detection alerts observed in the sample.",
+      "min": 0.0,
+      "max": 14.0,
+      "mean": 6.8854,
+      "median": 7.0,
+      "dtype": "int64"
+    },
+    {
+      "name": "DWT_Feature_1",
+      "description": "Wavelet-derived dataset feature 1.",
+      "min": -6.990702365841257,
+      "max": 7.229408508101115,
+      "mean": 0.09869678209614545,
+      "median": 0.11871554330217325,
+      "dtype": "float64"
+    },
+    {
+      "name": "DWT_Feature_2",
+      "description": "Wavelet-derived dataset feature 2.",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "dtype": "float64"
+    },
+    {
+      "name": "DWT_Feature_3",
+      "description": "Wavelet-derived dataset feature 3.",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "dtype": "float64"
+    },
+    {
+      "name": "DWT_Feature_4",
+      "description": "Wavelet-derived dataset feature 4.",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "dtype": "float64"
+    },
+    {
+      "name": "DWT_Feature_5",
+      "description": "Wavelet-derived dataset feature 5.",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "dtype": "float64"
+    },
+    {
+      "name": "DWT_Feature_6",
+      "description": "Wavelet-derived dataset feature 6.",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "dtype": "float64"
+    },
+    {
+      "name": "DWT_Feature_7",
+      "description": "Wavelet-derived dataset feature 7.",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "dtype": "float64"
+    },
+    {
+      "name": "DWT_Feature_8",
+      "description": "Wavelet-derived dataset feature 8.",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "dtype": "float64"
+    }
+  ],
+  "failure_metrics": {
+    "accuracy": 0.996,
+    "precision": 1.0,
+    "recall": 0.985239852398524,
+    "f1_score": 0.9925650557620818,
+    "roc_auc": 0.9999746911049358,
+    "average_precision": 0.9999327103636686,
+    "confusion_matrix": [
+      [
+        729,
+        0
+      ],
+      [
+        4,
+        267
+      ]
+    ]
+  },
+  "anomaly_metrics": {
+    "anomaly_rate": 0.053,
+    "sample_results": [
+      {
+        "is_anomaly": true,
+        "score": 0.9508
+      },
+      {
+        "is_anomaly": true,
+        "score": 0.8889
+      },
+      {
+        "is_anomaly": true,
+        "score": 0.8588
+      },
+      {
+        "is_anomaly": true,
+        "score": 0.8386
+      },
+      {
+        "is_anomaly": true,
+        "score": 0.7599
+      }
+    ]
+  },
+  "eda_report_path": "docs/eda/eda_report.md",
+  "benchmark_report_path": "docs/eda/model_benchmark.md",
+  "best_benchmark_model": "Gradient Boosting"
+}

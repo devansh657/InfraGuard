@@ -1,0 +1,11 @@
+pandas>=2.2,<3.1
+scikit-learn>=1.5,<2.0
+joblib>=1.5,<2.0
+fastapi==0.136.1
+uvicorn==0.47.0
+python-multipart==0.0.29
+httpx==0.28.1
+SQLAlchemy>=2.0,<3.0
+psycopg2-binary>=2.9,<3.0
+pytest>=8.0,<9.0
+matplotlib>=3.8,<4.0
